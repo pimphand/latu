@@ -66,25 +66,10 @@
                                             <img src="{{ asset('admin') }}/assets/img/svg/gallery.svg" alt="" class="svg">
                                         </div>
                                     </div>
-                                    <input type="textarea" name="decription" class="form-control pl-1"
-                                        value="{{ $product->description }}">
+                                    <textarea id="mytextarea" name="description" class="theme-input-style"
+                                        placeholder="Type Here">{{ $product->description }}</textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="font-14 bold mb-2">Harga</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <img src="{{ asset('admin') }}/assets/img/svg/gallery.svg" alt=""
-                                                class="svg">
-                                        </div>
-                                    </div>
-                                    <input type="textarea" name="price" class="form-control pl-1"
-                                        value="{{ $product->price }}">
-                                </div>
-                            </div>
-                            <!-- End Form Group -->
-
                             <div class="form-row">
                                 <div class="col-12 text-right">
                                     <button type="submit" class="btn long">Edit</button>
@@ -101,4 +86,32 @@
         </div>
     </div>
     <!-- End Form Group -->
+@endsection
+
+@section('CSS')
+    <script src="https://cdn.tiny.cloud/1/wwx0cl8afxdfv85dxbyv3dy0qaovbhaggsxpfqigxlxw8pjx/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin">
+    </script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            height: 500,
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks code fullscreen insertdatetime media nonbreaking',
+                'table emoticons template paste help'
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+                'forecolor backcolor emoticons | help',
+            menu: {
+                favs: {
+                    title: 'My Favorites',
+                    items: 'code visualaid | searchreplace | emoticons'
+                }
+            },
+            menubar: 'favs file edit view insert format tools table help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        });
+    </script>
 @endsection

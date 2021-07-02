@@ -47,15 +47,6 @@
                                     <p>{!! Str::limit($item->body, 100) !!}</p>
                                     <a href="{{ route('berita.detail', $item->id) }}">Lanjut Baca<i
                                             class="fas fa-chevron-right"></i></a>
-                                    {{-- <div class="inner-blog-share f-right">
-                                        <a href="#"><i class="fas fa-share-alt"></i></a>
-                                        <ul>
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        </ul>
-                                    </div> --}}
                                 </div>
                             </div>
                         @endforeach

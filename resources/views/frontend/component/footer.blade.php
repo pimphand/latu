@@ -6,13 +6,15 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget mb-50 pr-80">
                         <div class="logo mb-25">
-                            <a href="#"><img src="{{ asset('frontend') }}/img/logo/w_logo.png" alt="Logo"></a>
+                            <a href="#"><img src="{{ asset('frontend') }}/img/logo/logo.png" alt="Logo"
+                                    width="250px"></a>
                         </div>
                         <div class="footer-social">
                             <ul>
                                 <li> <a href="https://www.instagram.com/latusuryaabadi">
                                         <span><i class="fa fa-instagram"></i></span></a>
-                                </li><li>    <a href="https://www.facebook.com/Latu-Surya-Abadi-111245510418701/">
+                                </li>
+                                <li> <a href="https://www.facebook.com/Latu-Surya-Abadi-111245510418701/">
                                         <span><i class="fa fa-facebook"></i></span>
                                     </a></li>
                             </ul>
@@ -26,9 +28,9 @@
                         </div>
                         <div class="fw-link">
                             <ul>
-                                <li><a href="{{route('home')}}">Beranda</a></li>
-                                <li><a href="{{route('about')}}">Tentang Kami</a></li>
-                                <li><a href="{{route('produk')}}">Produk</a></li>
+                                <li><a href="{{ route('home') }}">Beranda</a></li>
+                                <li><a href="{{ route('about') }}">Tentang Kami</a></li>
+                                <li><a href="{{ route('produk') }}">Produk</a></li>
                             </ul>
                         </div>
                     </div>
@@ -40,8 +42,8 @@
                         </div>
                         <div class="fw-link">
                             <ul>
-                                <li><a href="{{route('berita')}}">Berita</a></li>
-                                <li><a href="{{route('kontak')}}">Kontak</a></li>
+                                <li><a href="{{ route('berita') }}">Berita</a></li>
+                                <li><a href="{{ route('kontak') }}">Kontak</a></li>
                             </ul>
                         </div>
                     </div>
@@ -53,8 +55,8 @@
                         </div>
                         <div class="fw-link">
                             <ul>
-                                <li><a href="{{route('produk')}}">Oli</a></li>
-                                <li><a href="{{route('produk')}}">Ban</a></li>
+                                <li><a href="{{ route('produk') }}">Oli</a></li>
+                                <li><a href="{{ route('produk') }}">Ban</a></li>
                             </ul>
                         </div>
                     </div>
@@ -120,7 +122,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="copyright-text">
-                        <p>Copyright © 2021 <a href="https://dmptdev.com" target="_blank">Dmptdev</a> All Rights Reserved.</p>
+                        <p>Copyright © 2021 <a href="https://dmptdev.com" target="_blank">Dmptdev</a> All Rights
+                            Reserved.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 d-none d-md-block">

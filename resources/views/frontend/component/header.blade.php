@@ -5,8 +5,8 @@
              <div class="row align-items-center">
                  <div class="col-lg-3 col-md-6 col-sm-6">
                      <div class="logo">
-                         <a href="/"><img src="{{ asset('frontend') }}/img/logo/logo.png" alt="Logo"
-                                 width="250px"></a>
+                         <a href="/"><img src="{{ asset('frontend') }}/img/logo/logo.png"
+                                 alt="{{ config('app.name', 'Latu Surya Abadi') }}" width="250px"></a>
                      </div>
                  </div>
                  <div class="col-lg-9 col-md-6 col-sm-6 text-right">

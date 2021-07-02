@@ -89,10 +89,13 @@
         tinymce.init({
             selector: '#mytextarea',
             height: 500,
+            tinydrive_token_provider: 'wwx0cl8afxdfv85dxbyv3dy0qaovbhaggsxpfqigxlxw8pjx',
+            tinydrive_google_drive_key: 'AIzaSyA0sjF655GvUSre6kpDvP0x7PcsRyoQ0vE',
+            tinydrive_google_drive_client_id: '542157891624-3fecmn03u50el1fkje2m7aefuo4t6o3a.apps.googleusercontent.com',
             plugins: [
                 'advlist autolink link image lists charmap print preview hr anchor pagebreak',
                 'searchreplace wordcount visualblocks code fullscreen insertdatetime media nonbreaking',
-                'table emoticons template paste help'
+                'table emoticons template paste help', 'image media link tinydrive code imagetools'
             ],
             toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
                 'bullist numlist outdent indent | link image | print preview media fullpage | ' +
@@ -100,11 +103,11 @@
             menu: {
                 favs: {
                     title: 'My Favorites',
-                    items: 'code visualaid | searchreplace | emoticons'
+                    items: 'code visualaid | searchreplace | emoticons | insertfile image link | code'
                 }
             },
             menubar: 'favs file edit view insert format tools table help',
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
         });
     </script>
 @endsection

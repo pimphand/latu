@@ -5,10 +5,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Makplus - Marketplace HTML5 Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Latu Surya Abadi | Oli dan Ban Ngawi  ">
+    <meta name="author" content="https://dmptdev.com">
+    <meta name="robots" content="noindex, nofollow">
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="Latu Surya Abadi | Oli dan Ban Ngawi  ">
+    <meta property="og:site_name" content="Codebase">
+    <meta property="og:description" content="Latu Surya Abadi | Oli dan Ban Ngawi  ">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://latusurya.com">
+    <meta property="og:image" content="{{ asset('frontend') }}/img/logo/logo.png"
+        alt="{{ config('app.name', 'Latu Surya Abadi') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend') }}/img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -26,6 +35,99 @@
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/style.css">
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/responsive.css">
     @yield('css')
+
+    <script>
+        promoBox({
+            imagePath: 'https://raw.githubusercontent.com/rolandtoth/promoBox/master/bird.jpg',
+            link: 'https://github.com/rolandtoth/promoBox',
+            target: '_blank',
+            disableOverlay: false,
+            disableOverlayClose: false,
+            disableStyles: false,
+            disableCloseButton: false,
+            disableKeyClose: false,
+            closeButtonText: '',
+            //            showOnHash: '#promo',
+            //            startDate: 'April 12, 2014 02:30:00',
+            //            endDate: 'May 20, 2014 19:27:00',
+            //            frequency: 0.33,
+            deleteCookieOnUrl: '#clear',
+            fadeInDuration: 0.5,
+            fadeOutDuration: 0.2,
+            loadDelay: 0.1,
+            //            interstitialSkipText: 'Skip this advertisement',
+            //            interstitialText: 'or wait %s secs',
+            autoCloseSeconds: 30
+        });
+
+        var demoImage = 'https://raw.githubusercontent.com/rolandtoth/promoBox/master/breeze.jpg';
+
+        document.getElementById('startPromo').onclick = function() {
+            promoBox({
+                imagePath: demoImage,
+                closeButtonText: 'close',
+                fadeInDuration: 0.33,
+                fadeOutDuration: 0.2
+            });
+            return false;
+        };
+
+        document.getElementById('startActionButtons').onclick = function() {
+            promoBox({
+                imagePath: demoImage,
+                fadeInDuration: 0.33,
+                fadeOutDuration: 0.2,
+                actionButtons: [
+                    ['Visit GitHub', 'https://github.com/rolandtoth/promoBox', '_blank', 'external github'],
+                    ['Jump to anchor', '#anchor', '', 'jumpLink'],
+                    ['Cancel']
+                ]
+            });
+            return false;
+        };
+
+        document.getElementById('startDelayed').onclick = function() {
+            promoBox({
+                imagePath: demoImage,
+                fadeInDuration: 0.33,
+                fadeOutDuration: 0.2,
+                loadDelay: 2
+            });
+            return false;
+        };
+
+        document.getElementById('startInterstitial').onclick = function() {
+            promoBox({
+                imagePath: demoImage,
+                fadeInDuration: 0.33,
+                fadeOutDuration: 0.2,
+                interstitialDuration: 30,
+                interstitialSkipText: 'Close interstitial',
+                interstitialText: 'or wait %s seconds to continue'
+            });
+            return false;
+        };
+
+        // callback functions
+
+        var promoBoxStart = function() {
+            if (typeof console !== "undefined") {
+                console.log('promoBox has started...');
+            }
+        };
+
+        var promoBoxClick = function() {
+            if (typeof console !== "undefined") {
+                console.log('promoBox image was clicked');
+            }
+        };
+
+        var promoBoxClose = function() {
+            if (typeof console !== "undefined") {
+                console.log('promoBox terminated');
+            }
+        };
+    </script>
 </head>
 
 <body>
@@ -38,6 +140,12 @@
                 <div class="object" id="object_two"></div>
                 <div class="object" id="object_three"></div>
             </div>
+        </div>
+    </div>
+    <div class="popup-wrap">
+        <div class="popup">
+            <div class="popup-timer"><span class="seconds"></span> second(s) left</div>
+            <div class="btn-close">x</div>
         </div>
     </div>
     <!-- preloader-end -->
@@ -53,6 +161,7 @@
         <!-- newsletter-area-end -->
     </main>
     <!-- main-area-end -->
+
     @include('frontend.component.footer')
 
     <!-- JS here -->
@@ -74,6 +183,37 @@
     <script src="{{ asset('frontend') }}/js/jquery.magnific-popup.min.js"></script>
     <script src="{{ asset('frontend') }}/js/plugins.js"></script>
     <script src="{{ asset('frontend') }}/js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // Set close and open variable
+            var btn_close = document.querySelector('.dialog__button--close');
+            var btn_open = document.querySelector('.dialog__button--open');
+
+            if (typeof(btn_close) != 'undefined' && btn_close != null) {
+                // Click event to close dialog
+                btn_close.addEventListener('click', function(event) {
+                    // btn.parentNode.parentNode.classList.add('dialog--close');
+                    btn_close.parentNode.parentNode.setAttribute('aria-hidden', 'true');
+                    if (typeof(btn_open) != 'undefined' && btn_open != null) {
+                        btn_open.classList.add('dialog__button--toggle');
+                    }
+                });
+            }
+
+            if (typeof(btn_open) != 'undefined' && btn_open != null) {
+                // Click event to open dialog
+                btn_open.addEventListener('click', function(event) {
+                    // btn.parentNode.parentNode.classList.add('dialog--close');
+                    btn_close.parentNode.parentNode.setAttribute('aria-hidden', 'false');
+                    if (typeof(btn_open) != 'undefined' && btn_open != null) {
+                        btn_open.classList.remove('dialog__button--toggle');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

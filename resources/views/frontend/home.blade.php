@@ -51,62 +51,7 @@
 
 @section('content')
     <section class="features-items-area features-items-p">
-        <div class="container">
-            {{-- <div class="row justify-content-center">
-                <div class="col-xl-8">
-                    <div class="section-title text-center mb-55">
-                        <h2>Featured Tranding of the week</h2>
-                        <p>Market or marketplace is location where people regularly purchase and provisins.</p>
-                    </div>
-                </div>
-            </div> --}}
-            {{-- <div class="product-thumb-wrap">
-                <div class="row text-center justify-content-center">
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb01.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb02.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb03.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb04.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb05.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb06.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb07.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb08.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb09.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb10.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb11.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb12.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb13.jpg" alt="img"></a>
-                    </div>
-                    <div class="single-product-thumb">
-                        <a href="#"><img src="{{ asset('frontend') }}/img/thumb/product_thumb14.jpg" alt="img"></a>
-                    </div>
-                </div>
-            </div> --}}
-        </div>
+
     </section>
     <!-- features-items-end -->
     <!-- product-area -->
