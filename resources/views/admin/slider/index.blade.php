@@ -43,11 +43,14 @@
                                                     <button class="btn bg-info"> <i class="fa fa-pencil fa-1x"></i>
                                                     </button>
                                                 </a>
-                                                <a href="">
-                                                    <button class="btn bg-danger" onclick="return myFunction();"> <i
-                                                            class="fa fa-trash fa-1x"></i>
+                                                <form action="{{ route('slider.destroy', ['slider' => $item->id]) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn bg-danger"
+                                                        onclick="return myFunction();"> <i class="fa fa-trash fa-1x"></i>
                                                     </button>
-                                                </a>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -114,6 +117,5 @@
             if (!confirm("Apakah anda yakin menghapus data ini?"))
                 event.preventDefault();
         }
-
     </script>
 @endsection

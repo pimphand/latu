@@ -32,9 +32,15 @@
                            </ul>
                        </li>
                        <li class="">
-                           <a href="index.html">
-                               <i class="icofont-pie-chart"></i>
-                               <span class="link-title">Blog</span>
+                           <a href="{{ route('news.index') }}">
+                               <i class="icofont-connection"></i>
+                               <span class="link-title">Berita</span>
+                           </a>
+                       </li>
+                       <li class="">
+                           <a href="{{ route('inbox.index') }}">
+                               <i class="icofont-envelope"></i>
+                               <span class="link-title">Pesan</span>
                            </a>
                        </li>
                        <li class="">
@@ -45,6 +51,8 @@
                            <ul class="nav sub-menu">
                                <li><a href="{{ route('popup.index') }}">Pop Up</a></li>
                                <li><a href="{{ route('slider.index') }}">Slider</a></li>
+                               <li><a href="{{ route('about.index') }}">Tentang kami</a></li>
+                               <li><a href="{{ route('service.index') }}">Service</a></li>
                            </ul>
                        </li>
                    </ul>

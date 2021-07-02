@@ -21,7 +21,7 @@ class CreateNewsTable extends Migration
             $table->boolean('published')->nullable()->default(false);
             $table->timestamps();
             $table->softDeletes();
-        }); 
+        });
     }
 
     /**

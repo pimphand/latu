@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
@@ -14,7 +16,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news = News::all();
+        return view('admin.news.index', [
+            'news' => $news
+        ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.news.create');
     }
 
     /**
@@ -35,7 +40,36 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $news = new News();
+        $news->title = $request->title;
+        $news->body = $request->body;
+        if ($request->has("image")) {
+            $imageName = Str::uuid();
+            $news->image = $imageName;
+            ImageController::news($request->file("image"), $imageName);
+        }
+        $news->published = $request->published;
+        $news->save();
+
+        return  redirect()->route('news.index')->with('success', "Berita berhasil ditambahkan");
+    }
+
+    public function unPublish($id)
+    {
+        $news = News::findOrFail($id);
+        $news->published = 1;
+        $news->save();
+
+        return back()->with('success', "$news->title  dipublish");
+    }
+
+    public function Publish($id)
+    {
+        $news = News::findOrFail($id);
+        $news->published = 0;
+        $news->save();
+
+        return back()->with('success', "$news->title Tidak dipublish");
     }
 
     /**
@@ -55,9 +89,10 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit(Request $request, $id)
     {
-        //
+        $data['news'] = News::findOrFail($id);
+        return view('admin.news.edit', $data);
     }
 
     /**
@@ -67,9 +102,20 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, $id)
     {
-        //
+        $news = News::findOrFail($id);
+        $news->title = $request->title;
+        $news->body = $request->body;
+        if ($request->has("image")) {
+            $imageName = Str::uuid();
+            $news->image = $imageName;
+            ImageController::news($request->file("image"), $imageName);
+        }
+        $news->published = $request->published;
+        $news->save();
+
+        return  redirect()->route('news.index')->with('success', "Berita berhasil diubah");
     }
 
     /**
@@ -78,8 +124,9 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        News::destroy($id);
+        return back()->with('danger', "Data berhasil dihapus");
     }
 }

@@ -30,7 +30,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $data['category'] = Product_Category::all();
+        return view('admin.product.create', $data);
     }
 
     /**

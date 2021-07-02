@@ -16,6 +16,14 @@ class ImageController extends Controller
         Storage::putFileAs("public/slider", $image, $name);
     }
 
+    public static function service($image, $name, $oldName = null): void
+    {
+        if ($oldName) {
+            Storage::delete('public/service/' . $oldName);
+        }
+        Storage::putFileAs("public/service", $image, $name);
+    }
+
     public static function popup($image, $name, $oldName = null): void
     {
         if ($oldName) {
@@ -24,12 +32,12 @@ class ImageController extends Controller
         Storage::putFileAs("public/popUp", $image, $name);
     }
 
-    public static function blog($image, $name, $oldName = null): void
+    public static function news($image, $name, $oldName = null): void
     {
         if ($oldName) {
-            Storage::delete('public/blog/' . $oldName);
+            Storage::delete('public/news/' . $oldName);
         }
-        Storage::putFileAs("public/blog", $image, $name);
+        Storage::putFileAs("public/news", $image, $name);
     }
 
     public static function produk($image, $name, $oldName = null): void

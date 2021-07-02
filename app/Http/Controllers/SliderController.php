@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class SliderController extends Controller
@@ -102,8 +103,11 @@ class SliderController extends Controller
      * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy($id)
     {
-        //
+        $image = Slider::findOrFail($id);
+        Slider::destroy($id);
+        Storage::delete('public/slider/' . $image->image);
+        return back();
     }
 }

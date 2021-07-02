@@ -87,7 +87,7 @@
                                 <div class="input-group-text black bold"><i class="fa fa-picture-o"></i></div>
                             </div>
                             <input type="file" name="image" id="addonEmail" class="form-control"
-                                placeholder="Masukan Nama Kategori" required>
+                                placeholder="Masukan Nama Kategori">
                         </div>
                     </div>
                     <!-- Button Group -->
@@ -107,6 +107,5 @@
             if (!confirm("Apakah anda yakin menghapus data ini?"))
                 event.preventDefault();
         }
-
     </script>
 @endsection

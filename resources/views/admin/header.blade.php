@@ -31,8 +31,8 @@
     <!-- ======= MAIN STYLES ======= -->
     <link rel="stylesheet" href="{{ asset('admin') }}/assets/css/style.css">
     <!-- ======= END MAIN STYLES ======= -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        <!--=======Font Awesome=======-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @yield('CSS')
 
 
 </head>
@@ -124,6 +124,16 @@
                                             <span class="date"><span id="date">selasa, 12 October 2019</span></span>
                                         </div>
                                         <!-- End Main Header Time -->
+                                    </li>
+                                    <div class="main-header-notification">
+                                        <a href="#" class="header-icon notification-icon" data-toggle="dropdown">
+                                            <span class="count"
+                                                data-bg-img="{{ asset('admin') }}/assets/img/count-bg.png">{{ \App\Models\Inbox::where('status', 0)->count() }}</span>
+                                            <img src="{{ asset('admin') }}/assets/img/svg/message-icon.svg" alt=""
+                                                class=" svg">
+                                        </a>
+                                    </div>
+                                    <!-- End Main Header Notification -->
                                     </li>
                                 </ul>
                             </div>

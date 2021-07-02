@@ -101,11 +101,10 @@
 @endsection
 
 @section('JS')
-    <script>
-        function myFunction() {
-            if (!confirm("Apakah anda yakin menghapus data ini?"))
-                event.preventDefault();
-        }
-
-    </script>
+    <!-- ======= BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS ======= -->
+    <script src="../../../assets/plugins/quill/katex.min.js"></script>
+    <script src="../../../assets/plugins/quill/highlight.min.js"></script>
+    <script src="../../../assets/plugins/quill/quill.min.js"></script>
+    <script src="../../../assets/plugins/quill/custom-quill.js"></script>
+    <!-- ======= End BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS ======= -->
 @endsection

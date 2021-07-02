@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <a href="#" class="s_alert mb-5" data-toggle="modal" data-target="#form">
+                    <a href="{{ route('product.create') }}" class="s_alert mb-5">
                         <i class="fa fa-plus fa-2x mb-3"></i>
                     </a>
                     <div class="card mb-30">
@@ -35,7 +35,7 @@
                                                 <img class="rounded" src="{{ asset('storage/produk/' . $item->image) }}"
                                                     width="400px" alt="">
                                             </td>
-                                            <td style="width: 20%"> {{ $item->description }}
+                                            <td style="width: 20%"> {!! $item->description !!}
                                             </td>
                                             <td style="width: 10%"> {{ $item->price }}
                                             </td>
@@ -114,31 +114,12 @@
                         <label for="addonEmail" class="mb-2 font-14 black bold">Deskripsi</label>
 
                         <div class="input-group addon">
-                            <div class="input-group-prepend">
-                                <span>
-                                    <span id="display_count" class="black">0</span>/
-                                    <span id="word_left">200</span>
-                                </span>
-                            </div>
-                            <textarea id="word_count" name="description" class="theme-input-style style--seven"
+                            <textarea id="mytextarea" name="description" class="theme-input-style style--seven"
                                 placeholder="Masukan Deskripsi" required></textarea>
                         </div>
                     </div>
-                    <div class="form-group mb-4 mr-3 ml-3">
-                        <label for="addonEmail" class="mb-2 font-14 black bold">Harga</label>
-                        <div class="input-group addon">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text black bold"><i class="fa fa-money"></i></div>
-                            </div>
-                            <input id="demo5" type="text" name="price" id="addonEmail" class="form-control"
-                                placeholder="Masukan Harga" required>
-                        </div>
-                    </div>
-                    <!-- End Form Group -->
-
-                    <!-- Button Group -->
                     <div class="button-group pt-1 mb-4 mr-3 ml-3">
-                        <button type="sumbit" class="btn long">Submit</button>
+                        <button type="submit" class="btn long">Submit</button>
                     </div>
                     <!-- End Button Group -->
                 </form>
@@ -155,6 +136,33 @@
             if (!confirm("Apakah anda yakin menghapus data ini?"))
                 event.preventDefault();
         }
+    </script>
+@endsection
 
+@section('CSS')
+    <script src="https://cdn.tiny.cloud/1/wwx0cl8afxdfv85dxbyv3dy0qaovbhaggsxpfqigxlxw8pjx/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin">
+    </script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            height: 500,
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks code fullscreen insertdatetime media nonbreaking',
+                'table emoticons template paste help'
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+                'forecolor backcolor emoticons | help',
+            menu: {
+                favs: {
+                    title: 'My Favorites',
+                    items: 'code visualaid | searchreplace | emoticons'
+                }
+            },
+            menubar: 'favs file edit view insert format tools table help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        });
     </script>
 @endsection
